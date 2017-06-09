@@ -2,6 +2,7 @@ var assign = require('object-assign');
 var cx = require('classnames');
 var blacklist = require('blacklist');
 var React = require('react');
+var videojs = require('video.js');
 
 module.exports = React.createClass({
   displayName: 'VideoJS',
@@ -9,14 +10,24 @@ module.exports = React.createClass({
   componentDidMount() {
     var self = this;
     var player = videojs(this.refs.video, this.props.options).ready(function() {
-      self.player = this
+      self.player = this;
       self.player.on('play', self.handlePlay);
     });
-    if(this.props.onPlayerInit) this.props.onPlayerInit(player);
+    if (this.props.onPlayerInit) {
+      this.props.onPlayerInit(player);
+    }
+  },
+
+  componentWillUnmount() {
+    if (this.player) {
+      this.player.dispose();
+    }
   },
 
   handlePlay: function() {
-    if(this.props.onPlay) this.props.onPlay(this.player);
+    if (this.props.onPlay) {
+      this.props.onPlay(this.player);
+    }
   },
 
   render() {
@@ -34,6 +45,6 @@ module.exports = React.createClass({
           <source src={this.props.src} type={this.props.type}/>
         </video>
       </div>
-    )
+    );
   }
 });

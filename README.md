@@ -1,27 +1,13 @@
-# react-videojs
-react videojs wrapper
-
-### Installtion
-``` sh
-npm install react-videojs --save
-```
-
-### Demo
-http://esportsguy.github.io/react-videojs/
+# react-web-videojs
+videojs wrapper for [react-web](https://github.com/taobaofed/react-web)
 
 ### Usage
-
-Video.js should be loaded globally.
-
-``` html
-<script src="http://vjs.zencdn.net/5-unsafe/video.js"></script>
-```
-
 ``` javascript
 <Video
   src="http://www.w3schools.com/html/mov_bbb.mp4"
-  type="video/mp4"
-  onPlay={this.handlePlay}
+  autoPlay
+  width={Dimensions.get('window').width}
+  height={Dimensions.get('window').height}
 />
 ```
 
