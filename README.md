@@ -11,5 +11,7 @@ videojs wrapper for [react-web](https://github.com/taobaofed/react-web)
 />
 ```
 
+Handling .eot files in Webpack, ref to [http://docs.videojs.com/tutorial-webpack.html](http://docs.videojs.com/tutorial-webpack.html)
+
 ### License
 ISC
