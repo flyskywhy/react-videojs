@@ -3,9 +3,10 @@ var cx = require('classnames');
 var blacklist = require('blacklist');
 var React = require('react');
 var videojs = require('video.js');
+var createClass = require('create-react-class');
 require('!style-loader!css-loader!video.js/dist/video-js.min.css');
 
-module.exports = React.createClass({
+module.exports = createClass({
   displayName: 'VideoJS',
 
   componentDidMount() {
